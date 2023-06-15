@@ -1,6 +1,6 @@
 import 'package:cancer_detection/camera.dart';
 import 'package:cancer_detection/openai_service.dart';
-import 'package:cancer_detection/pallete.dart';
+import 'package:cancer_detection/colorConstants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
@@ -78,10 +78,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    Color col = Pallete.firstSuggestionBoxColor;
+    Color col = ColorConstants.accentColor;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Medical Emergency"),
+        title: const Text("MedAI"),
         leading: InkWell(
           child: const Icon(Icons.camera_alt),
           onTap: () {
@@ -94,32 +94,6 @@ class _HomePageState extends State<HomePage> {
       ),
       body: ListView(
         children: [
-          Stack(
-            children: [
-              Center(
-                child: Container(
-                  height: 120,
-                  width: 120,
-                  margin: const EdgeInsets.only(top: 4),
-                  decoration: const BoxDecoration(
-                    color: Pallete.assistantCircleColor,
-                    shape: BoxShape.circle,
-                  ),
-                ),
-              ),
-              Container(
-                height: 123,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/virtualAssistant.png'),
-                  ),
-                ),
-              )
-            ],
-          ),
-          //chat bubble
-
           Visibility(
             visible:
                 (generatedContent != null || firstText == true) ? true : false,
@@ -131,7 +105,7 @@ class _HomePageState extends State<HomePage> {
               margin: const EdgeInsets.only(left: 10, top: 30, right: 40),
               decoration: BoxDecoration(
                   border: Border.all(
-                    color: Pallete.borderColor,
+                    color: ColorConstants.borderColor,
                   ),
                   borderRadius:
                       BorderRadius.circular(20).copyWith(topLeft: Radius.zero)),
@@ -142,9 +116,9 @@ class _HomePageState extends State<HomePage> {
                       ? "Hello. What can I help you with today?"
                       : generatedContent!,
                   style: TextStyle(
-                      color: Pallete.mainFontColor,
-                      fontSize: (generatedContent == null) ? 18 : 15,
-                      fontFamily: 'Cera Pro'),
+                    color: ColorConstants.textColor,
+                    fontSize: (generatedContent == null) ? 18 : 15,
+                  ),
                 ),
               ),
             ),

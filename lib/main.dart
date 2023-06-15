@@ -1,6 +1,6 @@
 import 'package:cancer_detection/cancer_detection.dart';
 import 'package:cancer_detection/camera.dart';
-import 'package:cancer_detection/pallete.dart';
+import 'package:cancer_detection/colorConstants.dart';
 import 'package:flutter/material.dart';
 
 import 'home_page.dart';
@@ -16,11 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Medical Emergency',
+      title: 'MedAI',
       theme: ThemeData.light(useMaterial3: true).copyWith(
-          scaffoldBackgroundColor: Pallete.whiteColor,
+          scaffoldBackgroundColor: Colors.white,
           appBarTheme: const AppBarTheme(
-            backgroundColor: Pallete.whiteColor,
+            backgroundColor: Colors.white,
           )),
       home: const HomePage(), //const camera(), //const HomePage(),
     );
